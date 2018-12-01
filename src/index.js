@@ -25,12 +25,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>{this.props.text}</h1>
-        <button type="button" onClick={this.handleClick.bind(this)}>
-          click
-        </button>
-        <button type="button" onClick={this.handleClick.bind(this)}>
-          reset
-        </button>
+        <Buttons click={this.handleClick.bind(this)} />
         <h2>No.of Clicks:{this.state.counter}</h2>
       </div>
     );
@@ -40,6 +35,19 @@ class App extends React.Component {
 App.defaultProps = {
   text: "Hello World"
 };
+
+const Buttons =props=>{
+  return (
+    <div>
+    <button type="button" onClick={props.click}>
+    click
+        </button>
+    <button type="button" onClick={props.click}>
+      reset
+        </button>
+      </div>
+      );
+}
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
